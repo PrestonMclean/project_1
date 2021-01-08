@@ -1,7 +1,8 @@
+<?php
 // PHP - Random Quote Generator
+$previous_quote;
+$current_quote;
 
-// Create the Multidimensional array of quote elements and name it quotes
-// Each inner array element should be an associative array
 $tags = ['inspirational','book quote','speach','life advice','light at the end of the tunnel','love'];
 
 $quotes = [
@@ -58,9 +59,17 @@ $quotes = [
     'tag' => ["$tags[1]","$tags[5]"]]
 ];
 
+function getRandomQuote() {
+  global $quotes, $current_quote, $previous_quote;
+  // this loop gets a differnt nummber every time
+  do {
+    $previous_quote = ($_GET["quote"]);
+    // get a random number that is in range of the inexes in $quotes
+    $current_quote = rand(0,(count($quotes)-1));
+  } while ($current_quote == $previous_quote);
+  // return the random quote
+  return $quotes[$current_quote];
+}
 
-// Create the getRandomQuuote function and name it getRandomQuote
 
-
-
-// Create the printQuote funtion and name it printQuote
+?>
