@@ -10,6 +10,8 @@
 <body>
   <div class="container">
     <div id="quote-box">
+      <?php include "inc/functions.php";
+            printQuote();
 
   </div>
 </body>
