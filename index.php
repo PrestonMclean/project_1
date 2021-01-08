@@ -12,6 +12,14 @@
     <div id="quote-box">
       <?php include "inc/functions.php";
             printQuote();
+            // I leared how to refresh from https://stackoverflow.com/questions/12383371/refresh-a-page-using-php
+            header("Refresh: 30; url=http://localhost/?quote=" . $current_quote);
+            ?>
+    <a href=<?php
+      // manualy change the url to pass the $current_quote to the refreshed page
+      echo ("http://localhost/?quote=" . $current_quote);?>>
+      <button id="loadQuote">Show another quote</button>
+    </a>
 
   </div>
 </body>
