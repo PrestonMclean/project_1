@@ -1,2 +1,3 @@
-# project_1
- my first php project
+this page displays random quotes
+from a list and some extra information
+about the quote.
