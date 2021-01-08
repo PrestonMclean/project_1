@@ -1,9 +1,19 @@
 /* Random Quote Generator Styles */
+<?php
+// I leared this from http://www.barelyfitz.com/projects/csscolor/
+header("Content-Type: text/css");
+
+$colors = ['#ED9405', '#038A99', '#36b55c', '#1F0480', '#948976'];
+$color = rand(0,(count($colors)-1));
+?>
 
 body {
-  background-color: #36b55c;
   color: white;
   font-family: 'Playfair Display', serif;
+}
+
+#loadQuote, body {
+  background-color: <?php echo "$colors[$color]";?>;
 }
 
 #quote-box {
@@ -13,6 +23,18 @@ body {
   right: 10%;
   width: 80%;
   line-height: .5;
+  animation-name: fade;
+  animation-duration: 5s;
+}
+
+
+@keyframes fade {
+  from {
+    color: #fff1;
+  }
+  to {
+    color: #ffff;
+  }
 }
 
 .quote {
@@ -50,6 +72,13 @@ body {
   margin-right: 4em;
 }
 
+.tag {
+  border-radius: 6px;
+  padding: 4px;
+  margin: 5px;
+  background-color: #0008;
+}
+
 .source:before {
   content: "—";
 }
@@ -74,14 +103,15 @@ body {
   display: inline-block;
   left: 50%;
   margin-left: -6em;
-  bottom: 150px;
+  bottom: 50px;
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
-  background-color: #36b55c;
   padding: 15px 0;
   transition: .5s ;
+  text-decoration: none;
 }
+
 #loadQuote:hover {
   background-color: rgba(255,255,255,.25);
 }
