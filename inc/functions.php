@@ -71,5 +71,26 @@ function getRandomQuote() {
   return $quotes[$current_quote];
 }
 
+function printQuote()
+{
+  // call getRandomQuote and store the quote in $quote
+  $quote = getRandomQuote();
+  // display the quote
+  echo "<p class='quote'>" . $quote['quote'] . "</p>";
+  // display the source
+  echo "<p class='source'>" . $quote['source'];
+  if ($quote['citation'] != ''){
+    echo "<span class='citation'> " . $quote['citation'] . "</span>";
+  }
+  // display the year if it is not empty
+  if ($quote['year'] != 0){
+    echo "<span class='year'> " . $quote['year'] . "</span>";
+  }
+  // display all tags
+  foreach ($quote['tag'] as $tag) {
+    echo "<span class='tag'> " . $tag . "</span>";
+  }
+  echo "</p>";
+}
 
 ?>
